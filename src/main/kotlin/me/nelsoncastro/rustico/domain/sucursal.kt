@@ -6,26 +6,19 @@ import javax.persistence.*
 @Table(schema = "public", name = "sucursal")
 data class sucursal(
         @Id
-        @GeneratedValue(generator = "sucursal_código_seq",strategy = GenerationType.AUTO)
-        @SequenceGenerator(name = "sucursal_código_seq", sequenceName = "public.sucursal_código_seq", allocationSize = 1)
-        @Column(name = "código")
+        @GeneratedValue(generator = "sucursal_c_sucursal_seq",strategy = GenerationType.AUTO)
+        @SequenceGenerator(name = "sucursal_c_sucursal_seq", sequenceName = "public.sucursal_c_sucursal_seq", allocationSize = 1)
+        @Column(name = "c_sucursal")
         val id: Int,
+        @Column(name = "s_nombre")
         var nombre: String,
-        @Column(name = "ubicación")
+        @Column(name = "s_ubicacion")
         var ubicacion: String,
-        var horarios: Array<String>,
+        @Column(name = "s_horario")
+        var horarios: String,
+        @Column(name = "s_nmesas")
         var nMesas: Int,
+        @Column(name = "s_nomgerente")
         var nomGerente: String
 ) {
-        override fun equals(other: Any?): Boolean {
-                if (this === other) return true
-                if (javaClass != other?.javaClass) return false
-                other as sucursal
-                if (!horarios.contentEquals(other.horarios)) return false
-                return true
-        }
-
-        override fun hashCode(): Int {
-                return horarios.contentHashCode()
-        }
 }

@@ -7,10 +7,13 @@ import javax.persistence.*
 data class usuario(
 
         @Id
-        @GeneratedValue(generator = "usuario_id_seq",strategy = GenerationType.AUTO)
-        @SequenceGenerator(name = "usuario_id_seq", sequenceName = "public.usuario_id_seq", allocationSize = 1)
+        @GeneratedValue(generator = "usuario_c_usuario_seq",strategy = GenerationType.AUTO)
+        @SequenceGenerator(name = "usuario_c_usuario_seq", sequenceName = "public.usuario_c_usuario_seq", allocationSize = 1)
+        @Column(name = "c_usuario")
         val id: Int,
+        @Column(name = "u_usuario")
         var usuario: String,
+        @Column(name = "u_clave")
         var clave: String
 )
 
