@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <h1 th:text="${header.toString()}"></h1>
+    <div>
+    <form th:object="${empleado}" th:action="@{/sucursal/perfil/{idSucursal}/empleado/actualizar/{idEmpleado}(idSucursal=${idSucursal},idEmpleado=${empleado.id})}" method="post">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" th:field="*{nombre}"/>
+        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+        <br/>
+        <label for="edad">Edad</label>
+        <input id="edad" type="number" th:field="*{edad}"/>
+        <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></span>
+        <br/>
+        <label for="genero">Genero</label>
+        <input id="genero" type="text" th:field="*{genero}"/>
+        <span th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></span>
+        <br/>
+        <label for="estado">Estado</label>
+        <input id="estado" type="checkbox" th:field="*{estado}"/>
+        <span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></span>
+        <br/>
+        <br/>
+        <input type="submit" value="Guardar">
+    </form>
+</div>
+</body>
+</html>

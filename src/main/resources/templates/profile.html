@@ -41,7 +41,7 @@
                 <th scope="col">Genero</th>
                 <th scope="col">Estado</th>
                 <th scope="col"></th>
-                <th scope="col"><a th:href="@{/empleado/crear}"><i class="material-icons">add_circle</i></a></th>
+                <th scope="col"><a th:href="@{/sucursal/perfil/{id}/empleado/crear(id=${sucursal.id})}"><i class="material-icons">add_circle</i></a></th>
             </tr>
             </thead>
             <tbody>
@@ -51,8 +51,8 @@
                 <td th:text="${em.edad}"></td>
                 <td th:text="${em.genero}"></td>
                 <td th:text="${em.getStatus()}"></td>
-                <td><a th:href="@{/empleado/editar/{id}(id=${em.id})}"><i class="material-icons">edit</i></a></td>
-                <td><a th:href="@{/empleado/borrar/{id}(id=${em.id})}"><i class="material-icons">delete</i></a></td>
+                <td><a th:href="@{/sucursal/perfil/{id}/empleado/editar/{idEmpleado}(id=${sucursal.id}, idEmpleado=${em.id})}"><i class="material-icons">edit</i></a></td>
+                <td><a th:href="@{/sucursal/perfil/{id}/empleado/borrar/{idEmpleado}(id=${sucursal.id}, idEmpleado=${em.id})}"><i class="material-icons">delete</i></a></td>
             </tr>
             </tbody>
         </table>
