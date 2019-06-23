@@ -18,7 +18,6 @@ data class empleado(
         var genero: String,
         @Column(name = "e_estado")
         var estado: Boolean,
-        @Column(name = "e_sucursal")
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "c_sucursal")
         var sucursal: sucursal

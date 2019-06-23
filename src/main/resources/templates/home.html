@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+    <div th:switch="${#lists.isEmpty(sucursales)}">
+        <h2 th:case="true">No hay sucursales registradas</h2>
+        <div th:case="*">
+           <h2>Sucursales</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ubicación</th>
+                    <th>Abre</th>
+                    <th>Cierre</th>
+                    <th>Número de mesas</th>
+                    <th>Nombre del gerente</th>
+                    <th>Perfil</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="sc : ${sucursales}">
+                    <td th:text="${sc.nombre}"></td>
+                    <td th:text="${sc.ubicacion}"></td>
+                    <td th:text="${sc.getApertura()}"></td>
+                    <td th:text="${sc.getCierre()}"></td>
+                    <td th:text="${sc.getNMesas()}"></td>
+                    <td th:text="${sc.nomGerente}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

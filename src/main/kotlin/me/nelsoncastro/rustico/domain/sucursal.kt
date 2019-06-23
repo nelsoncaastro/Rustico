@@ -21,4 +21,7 @@ data class sucursal(
         @Column(name = "s_nomgerente")
         var nomGerente: String
 ) {
+        fun getApertura() = horarios.split(" ")[0]
+
+        fun getCierre() = horarios.split(" ")[1]
 }
