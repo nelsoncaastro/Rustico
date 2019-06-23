@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <div th:switch="${#lists.isEmpty(sucursales)}">
         <h2 th:case="true">No hay sucursales registradas</h2>
         <div th:case="*">
-           <h2>Sucursales</h2>
-            <table>
+           <h1>Sucursales</h1>
+            <table class="table">
                 <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Ubicación</th>
-                    <th>Abre</th>
-                    <th>Cierre</th>
-                    <th>Número de mesas</th>
-                    <th>Nombre del gerente</th>
-                    <th>Perfil</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Ubicación</th>
+                    <th scope="col">Abre</th>
+                    <th scope="col">Cierre</th>
+                    <th scope="col">Número de mesas</th>
+                    <th scope="col">Nombre del gerente</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,6 +33,9 @@
                     <td th:text="${sc.getCierre()}"></td>
                     <td th:text="${sc.getNMesas()}"></td>
                     <td th:text="${sc.nomGerente}"></td>
+                    <td><a th:href="@{/sucursal/perfil/{id}(id=${sc.id})}"><i class="material-icons">unfold_more</i></a></td>
+                    <td><i class="material-icons">edit</i></td>
+                    <td><i class="material-icons">delete</i></td>
                 </tr>
                 </tbody>
             </table>

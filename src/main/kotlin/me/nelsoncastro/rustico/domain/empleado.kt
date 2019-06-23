@@ -18,8 +18,9 @@ data class empleado(
         var genero: String,
         @Column(name = "e_estado")
         var estado: Boolean,
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "c_sucursal")
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "e_sucursal")
         var sucursal: sucursal
 ) {
+        fun getStatus() = if (estado) "Activo" else "Inactivo"
 }

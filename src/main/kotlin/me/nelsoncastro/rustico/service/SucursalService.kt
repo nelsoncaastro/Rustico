@@ -11,4 +11,6 @@ class SucursalService {
     lateinit var sucursalRepository: SucursalRepository
 
     fun findAll() = sucursalRepository.findAll()
+
+    fun findOne(id: Int) = sucursalRepository.findById(id)
 }

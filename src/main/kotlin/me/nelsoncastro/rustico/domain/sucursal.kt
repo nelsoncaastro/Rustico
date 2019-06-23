@@ -19,7 +19,9 @@ data class sucursal(
         @Column(name = "s_nmesas")
         var nMesas: Int,
         @Column(name = "s_nomgerente")
-        var nomGerente: String
+        var nomGerente: String,
+        @OneToMany(fetch = FetchType.EAGER, mappedBy = "sucursal")
+        var empleados: List<empleado>
 ) {
         fun getApertura() = horarios.split(" ")[0]
 

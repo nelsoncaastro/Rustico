@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div th:object="${sucursal}">
+        <h1 th:text="${sucursal.nombre}"></h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ubicación</th>
+                <th scope="col">Abre</th>
+                <th scope="col">Cierre</th>
+                <th scope="col">Número de mesas</th>
+                <th scope="col">Nombre del gerente</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${sucursal.id}"></td>
+                <td th:text="${sucursal.ubicacion}"></td>
+                <td th:text="${sucursal.getApertura()}"></td>
+                <td th:text="${sucursal.getCierre()}"></td>
+                <td th:text="${sucursal.getNMesas()}"></td>
+                <td th:text="${sucursal.nomGerente}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <h3>Empleados</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="em : ${sucursal.empleados}">
+                <td th:text="${em.id}"></td>
+                <td th:text="${em.nombre}"></td>
+                <td th:text="${em.edad}"></td>
+                <td th:text="${em.genero}"></td>
+                <td th:text="${em.getStatus()}"></td>
+                <td><a th:href="@{/empleado/editar/{id}(id=${em.id})}"><i class="material-icons">edit</i></a></td>
+                <td><i class="material-icons">delete</i></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
