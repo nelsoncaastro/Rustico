@@ -9,18 +9,18 @@ data class empleado(
         @GeneratedValue(generator = "empleado_c_empleado_seq",strategy = GenerationType.AUTO)
         @SequenceGenerator(name = "empleado_c_empleado_seq", sequenceName = "public.empleado_c_empleado_seq", allocationSize = 1)
         @Column(name = "c_empleado")
-        val id: Int,
+        var id: Int = 0,
         @Column(name = "e_nombre")
-        var nombre: String,
+        var nombre: String = "",
         @Column(name = "e_edad")
-        var edad: Int,
+        var edad: Int = 0,
         @Column(name = "e_genero")
-        var genero: String,
+        var genero: String = "",
         @Column(name = "e_estado")
-        var estado: Boolean,
+        var estado: Boolean = false,
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "e_sucursal")
-        var sucursal: sucursal
+        var sucursal: sucursal = sucursal()
 ) {
         fun getStatus() = if (estado) "Activo" else "Inactivo"
 }

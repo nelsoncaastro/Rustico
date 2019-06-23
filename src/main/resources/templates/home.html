@@ -31,11 +31,11 @@
                     <td th:text="${sc.ubicacion}"></td>
                     <td th:text="${sc.getApertura()}"></td>
                     <td th:text="${sc.getCierre()}"></td>
-                    <td th:text="${sc.getNMesas()}"></td>
+                    <td th:text="${sc.mesas}"></td>
                     <td th:text="${sc.nomGerente}"></td>
                     <td><a th:href="@{/sucursal/perfil/{id}(id=${sc.id})}"><i class="material-icons">unfold_more</i></a></td>
-                    <td><i class="material-icons">edit</i></td>
-                    <td><i class="material-icons">delete</i></td>
+                    <td><a th:href="@{/sucursal/editar/{id}(id=${sc.id})}"><i class="material-icons">edit</i></a></td>
+                    <td><a th:href="@{/sucursal/borrar/{id}(id=${sc.id})}"><i class="material-icons">delete</i></a></td>
                 </tr>
                 </tbody>
             </table>

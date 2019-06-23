@@ -1,12 +1,13 @@
 package me.nelsoncastro.rustico.controller
 
+import me.nelsoncastro.rustico.domain.sucursal
 import me.nelsoncastro.rustico.service.SucursalService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.validation.BindingResult
+import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @Controller
 class SucursalController {
@@ -28,7 +29,7 @@ class SucursalController {
             model.addAttribute("sucursal", sucursal)
             return "profile"
         }
-        return "home"
+        return "editsucursal"
     }
 
     @RequestMapping("/sucursal/editar/{idSucursal}", method = [RequestMethod.GET, RequestMethod.POST])
@@ -37,8 +38,28 @@ class SucursalController {
         if (sucursalActual.isPresent){
             val sucursal = sucursalActual.get()
             model.addAttribute("sucursal", sucursal)
-            return "profile"
+            return "editsucursal"
         }
-        return "home"
+        return "redirect:/sucursal"
+    }
+
+    @PostMapping("/sucursal/actualizar/{idSucursal}")
+    fun actualizarSucursal(@PathVariable("idSucursal") id: Int,
+                           @Valid sucursal: sucursal,
+                           result: BindingResult,
+                           model: Model): String {
+        model.addAttribute("sucursal", sucursal)
+        sucursal.id = id
+        if (result.hasErrors()) return "editsucursal"
+        sucursalService.save(sucursal)
+        val allSucursales = sucursalService.findAll().toList()
+        model.addAttribute("sucursales", allSucursales)
+        return "redirect:/sucursal"
+    }
+
+    @GetMapping("/sucursal/borrar/{idSucursal}")
+    fun borrarSucursal(@PathVariable("idSucursal") id: Int, model: Model):String{
+        sucursalService.findOne(id).ifPresent { sucursalService.delete(it) }
+        return "redirect:/sucursal"
     }
 }

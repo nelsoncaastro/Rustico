@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Editar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
+    <h1>Editar Sucursal</h1>
+    <div>
+        <form th:object="${sucursal}" th:action="@{/sucursal/actualizar/{id}(id=${sucursal.id})}" method="post">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" th:field="*{nombre}"/>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+            <br/>
+            <label for="ubicacion">Ubicación</label>
+            <input id="ubicacion" type="text" th:field="*{ubicacion}"/>
+            <span th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}"></span>
+            <br/>
+            <label for="horarios">Horarios</label>
+            <input id="horarios" type="text" th:field="*{horarios}"/>
+            <span th:if="${#fields.hasErrors('horarios')}" th:errors="*{horarios}"></span>
+            <br/>
+            <label for="gerente">Gerente</label>
+            <input id="gerente" type="text" th:field="*{nomGerente}"/>
+            <span th:if="${#fields.hasErrors('nomGerente')}" th:errors="*{nomGerente}"></span>
+            <br/>
+            <label for="nmesas">Mesas</label>
+            <input id="nmesas" type="number" th:field="*{mesas}"/>
+            <span th:if="${#fields.hasErrors('mesas')}" th:errors="*{mesas}"></span>
+            <br/>
+            <br/>
+            <input type="submit" value="Editar">
+        </form>
+    </div>
 </body>
 </html>
