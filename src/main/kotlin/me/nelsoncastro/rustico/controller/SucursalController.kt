@@ -26,6 +26,7 @@ class SucursalController {
         val sucursalActual = sucursalService.findOne(id)
         if (sucursalActual.isPresent){
             val sucursal = sucursalActual.get()
+            model.addAttribute("header", "Editar Sucursal")
             model.addAttribute("sucursal", sucursal)
             return "profile"
         }
@@ -37,6 +38,7 @@ class SucursalController {
         val sucursalActual = sucursalService.findOne(id)
         if (sucursalActual.isPresent){
             val sucursal = sucursalActual.get()
+            model.addAttribute("header", "Editar Sucursal")
             model.addAttribute("sucursal", sucursal)
             return "editsucursal"
         }
@@ -48,6 +50,7 @@ class SucursalController {
                            @Valid sucursal: sucursal,
                            result: BindingResult,
                            model: Model): String {
+        model.addAttribute("header", "Editar Sucursal")
         model.addAttribute("sucursal", sucursal)
         sucursal.id = id
         if (result.hasErrors()) return "editsucursal"
@@ -61,5 +64,12 @@ class SucursalController {
     fun borrarSucursal(@PathVariable("idSucursal") id: Int, model: Model):String{
         sucursalService.findOne(id).ifPresent { sucursalService.delete(it) }
         return "redirect:/sucursal"
+    }
+
+    @GetMapping("/sucursal/crear")
+    fun crearSucursal(model: Model): String {
+        model.addAttribute("header", "Crear Sucursal")
+        model.addAttribute("sucursal", sucursal())
+        return "editsucursal"
     }
 }

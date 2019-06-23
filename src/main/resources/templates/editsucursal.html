@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <h1>Editar Sucursal</h1>
+    <h1 th:text="${header.toString()}"></h1>
     <div>
         <form th:object="${sucursal}" th:action="@{/sucursal/actualizar/{id}(id=${sucursal.id})}" method="post">
             <label for="nombre">Nombre</label>
@@ -31,7 +31,7 @@
             <span th:if="${#fields.hasErrors('mesas')}" th:errors="*{mesas}"></span>
             <br/>
             <br/>
-            <input type="submit" value="Editar">
+            <input type="submit" value="Guardar">
         </form>
     </div>
 </body>

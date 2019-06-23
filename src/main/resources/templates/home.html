@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
@@ -11,6 +11,7 @@
         <h2 th:case="true">No hay sucursales registradas</h2>
         <div th:case="*">
            <h1>Sucursales</h1>
+
             <table class="table">
                 <thead>
                 <tr>
@@ -22,7 +23,7 @@
                     <th scope="col">Nombre del gerente</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col"><a th:href="@{/sucursal/crear}"><i class="material-icons">add_circle</i></a></th>
                 </tr>
                 </thead>
                 <tbody>
