@@ -30,6 +30,7 @@ class EmpleadoController {
     fun editarEmpleado(@PathVariable("idSucursal") idSucursal:Int,
                        @PathVariable("idEmpleado") idEmpleado: Int,
                        @Valid empleado: empleado,
+                       result: BindingResult,
                        model: Model): String {
         val empleadoActual = empleadoService.findOne(idEmpleado)
         if (empleadoActual.isPresent){

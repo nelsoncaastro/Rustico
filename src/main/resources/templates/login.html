@@ -15,13 +15,13 @@
             <label for="usuario">Usuario:</label>
             <input id="usuario" class="form-control" type="text" th:field="*{usuario}" placeholder="Correo electronico" style="min-width: 200px;width: 20%"/>
         </div>
-        <span  th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" class="badge badge-danger"></span>
+        <span style="margin-left: 2%" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" class="badge badge-danger"></span>
         <div style="margin-left: 2%" class="form-group">
             <label for="clave">Contaseña:</label>
             <input id="clave" class="form-control" type="password" th:field="*{clave}" placeholder="Contraseña" style="min-width: 200px;width: 20%"/>
         </div>
-        <span  th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}" class="badge badge-danger"></span>
-        <button style="margin-left: 6.5%; padding: 0.5%" type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <div class="row" style="margin: 0 0 1% 2%"><span  th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}" class="badge badge-danger"></span></div>
+        <div class="row" style="margin: 0 0 0 6.5%; padding: 0.5%"><button  type="submit" class="btn btn-primary">Iniciar Sesión</button></div>
     </form>
 </div>
 

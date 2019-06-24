@@ -20,23 +20,22 @@
              <label for="nombre">Nombre</label>
              <input id="nombre" class="form-control" style="min-width: 200px;width: 20%" placeholder="Nombre" type="text" th:field="*{nombre}"/>
          </div>
-        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="badge badge-danger"></span>
+        <span style="margin-left: 2%" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="badge badge-danger"></span>
         <div style="margin-left: 2%" class="form-group">
             <label for="edad">Edad</label>
             <input id="edad" class="form-control" style="min-width: 200px;width: 20%" placeholder="Edad" type="number" th:field="*{edad}"/>
         </div>
-        <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}" class="badge badge-danger"></span>
+        <span style="margin-left: 2%" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}" class="badge badge-danger"></span>
         <div style="margin-left: 2%" class="form-group">
             <label for="genero">Genero</label>
             <input id="genero" class="form-control" style="min-width: 200px;width: 20%" placeholder="Genero" type="text" th:field="*{genero}"/>
         </div>
-        <span th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}" class="badge badge-danger"></span>
+        <span style="margin-left: 2%" th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}" class="badge badge-danger"></span>
         <div style="margin-left: 2%" class="form-check">
             <label for="estado" class="form-check-label">Activo</label>
             <input id="estado" class="form-check-input" style="min-width: 200px;width: 20%" type="checkbox" th:field="*{estado}"/>
         </div>
-        <span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}" class="badge badge-danger"></span>
-        <input style="margin-left: 6.5%; padding: 0.5%" type="submit" value="Guardar" class="btn btn-primary">
+        <input style="margin: 2% 0 0 6.5%; padding: 0.5%" type="submit" value="Guardar" class="btn btn-primary">
     </form>
 </div>
 </body>

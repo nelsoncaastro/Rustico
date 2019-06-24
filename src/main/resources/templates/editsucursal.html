@@ -20,12 +20,12 @@
                 <label for="nombre">Nombre</label>
                 <input id="nombre" class="form-control" style="min-width: 200px;width: 20%" placeholder="Nombre" type="text" th:field="*{nombre}"/>
             </div>
-            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="badge badge-danger"></span>
+            <span style="margin-left: 2%" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="badge badge-danger"></span>
             <div style="margin-left: 2%" class="form-group">
                 <label for="ubicacion">Ubicación</label>
                 <input id="ubicacion" class="form-control" style="min-width: 200px;width: 20%" placeholder="Ubicación" type="text" th:field="*{ubicacion}"/>
             </div>
-            <span th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}" class="badge badge-danger"></span>
+            <span style="margin-left: 2%" th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}" class="badge badge-danger"></span>
             <div style="margin-left: 2%" class="form-group">
                 <label for="horarios">Horarios</label>
                 <input id="horarios" class="form-control" style="min-width: 200px;width: 20%" placeholder="Horarios" type="text" aria-describedby="horarioshelp" th:field="*{horarios}"/>
@@ -36,13 +36,13 @@
                 <label for="gerente">Gerente</label>
                 <input id="gerente" class="form-control" style="min-width: 200px;width: 20%" placeholder="Nombre de Gerente" type="text" th:field="*{nomGerente}"/>
             </div>
-            <span th:if="${#fields.hasErrors('nomGerente')}" th:errors="*{nomGerente}" class="badge badge-danger"></span>
+            <span style="margin-left: 2%" th:if="${#fields.hasErrors('nomGerente')}" th:errors="*{nomGerente}" class="badge badge-danger"></span>
             <div style="margin-left: 2%" class="form-group">
                 <label for="nmesas">Mesas</label>
                 <input id="nmesas" class="form-control" style="min-width: 200px;width: 20%" placeholder="Numero de mesas" type="number" th:field="*{mesas}"/>
             </div>
-            <span th:if="${#fields.hasErrors('mesas')}" th:errors="*{mesas}" class="badge badge-danger"></span>
-            <input style="margin-left: 6.5%; padding: 0.5%" type="submit" value="Guardar" class="btn btn-primary">
+            <div class="row" style="margin: 0 0 1% 2%"><span th:if="${#fields.hasErrors('mesas')}" th:errors="*{mesas}" class="badge badge-danger"></span></div>
+            <div class="row" style="margin: 0 0 0 6.5%; padding: 0.5%"><input type="submit" value="Guardar" class="btn btn-primary"></div>
         </form>
     </div>
 </body>
