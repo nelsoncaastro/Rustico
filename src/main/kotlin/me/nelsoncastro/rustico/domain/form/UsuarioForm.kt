@@ -16,5 +16,4 @@ data class UsuarioForm (
         @field:NotBlank(message = "Ingrese una contraseña valida")
         @field:Size(min = 8, message = "La contraseña debe contener al menos 8 caracteres")
         var clave: String = ""
-){
-}
+)

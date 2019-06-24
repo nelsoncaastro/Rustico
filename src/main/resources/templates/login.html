@@ -3,21 +3,25 @@
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<h2>Iniciar Sesión</h2>
+<h1 style="margin-left: 5%;margin-top: 2%">Iniciar Sesión</h1>
 
 <div>
     <form th:object="${usuarioForm}" th:action="@{/login}" method="post">
-        <label for="usuario">Usuario:</label>
-        <input id="usuario" type="text" th:field="*{usuario}"/>
-        <span th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></span>
-        <br/>
-        <label for="clave">Clave:</label>
-        <input id="clave" type="password" th:field="*{clave}"/>
-        <span th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}"></span>
-        <br/>
-        <button type="submit">Iniciar Sesión</button>
+        <div style="margin-left: 2%" class="form-group">
+            <label for="usuario">Usuario:</label>
+            <input id="usuario" class="form-control" type="text" th:field="*{usuario}" placeholder="Correo electronico" style="min-width: 200px;width: 20%"/>
+        </div>
+        <span  th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" class="badge badge-danger"></span>
+        <div style="margin-left: 2%" class="form-group">
+            <label for="clave">Contaseña:</label>
+            <input id="clave" class="form-control" type="password" th:field="*{clave}" placeholder="Contraseña" style="min-width: 200px;width: 20%"/>
+        </div>
+        <span  th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}" class="badge badge-danger"></span>
+        <button style="margin-left: 6.5%; padding: 0.5%" type="submit" class="btn btn-primary">Iniciar Sesión</button>
     </form>
 </div>
 

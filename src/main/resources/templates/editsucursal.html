@@ -7,31 +7,42 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <h1 th:text="${header.toString()}"></h1>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" th:href="@{/sucursal/}">
+            <h2><img th:src="@{/assets/letter-r.svg}" width="40" height="40" class="d-inline-block align-top" alt="" >
+            Rustico</h2>
+        </a>
+    </nav>
+    <h1 style="padding: 1%" th:text="${header.toString()}"></h1>
     <div>
         <form th:object="${sucursal}" th:action="@{/sucursal/actualizar/{id}(id=${sucursal.id})}" method="post">
-            <label for="nombre">Nombre</label>
-            <input id="nombre" type="text" th:field="*{nombre}"/>
-            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
-            <br/>
-            <label for="ubicacion">Ubicación</label>
-            <input id="ubicacion" type="text" th:field="*{ubicacion}"/>
-            <span th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}"></span>
-            <br/>
-            <label for="horarios">Horarios</label>
-            <input id="horarios" type="text" th:field="*{horarios}"/>
-            <span th:if="${#fields.hasErrors('horarios')}" th:errors="*{horarios}"></span>
-            <br/>
-            <label for="gerente">Gerente</label>
-            <input id="gerente" type="text" th:field="*{nomGerente}"/>
-            <span th:if="${#fields.hasErrors('nomGerente')}" th:errors="*{nomGerente}"></span>
-            <br/>
-            <label for="nmesas">Mesas</label>
-            <input id="nmesas" type="number" th:field="*{mesas}"/>
-            <span th:if="${#fields.hasErrors('mesas')}" th:errors="*{mesas}"></span>
-            <br/>
-            <br/>
-            <input type="submit" value="Guardar">
+            <div style="margin-left: 2%" class="form-group">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" class="form-control" style="min-width: 200px;width: 20%" placeholder="Nombre" type="text" th:field="*{nombre}"/>
+            </div>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="badge badge-danger"></span>
+            <div style="margin-left: 2%" class="form-group">
+                <label for="ubicacion">Ubicación</label>
+                <input id="ubicacion" class="form-control" style="min-width: 200px;width: 20%" placeholder="Ubicación" type="text" th:field="*{ubicacion}"/>
+            </div>
+            <span th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}" class="badge badge-danger"></span>
+            <div style="margin-left: 2%" class="form-group">
+                <label for="horarios">Horarios</label>
+                <input id="horarios" class="form-control" style="min-width: 200px;width: 20%" placeholder="Horarios" type="text" aria-describedby="horarioshelp" th:field="*{horarios}"/>
+                <small id="horarioshelp" class="form-text text-muted">Formato 24h: Inicio Fin.</small>
+            </div>
+            <span th:if="${#fields.hasErrors('horarios')}" th:errors="*{horarios}" class="badge badge-danger"></span>
+            <div style="margin-left: 2%" class="form-group">
+                <label for="gerente">Gerente</label>
+                <input id="gerente" class="form-control" style="min-width: 200px;width: 20%" placeholder="Nombre de Gerente" type="text" th:field="*{nomGerente}"/>
+            </div>
+            <span th:if="${#fields.hasErrors('nomGerente')}" th:errors="*{nomGerente}" class="badge badge-danger"></span>
+            <div style="margin-left: 2%" class="form-group">
+                <label for="nmesas">Mesas</label>
+                <input id="nmesas" class="form-control" style="min-width: 200px;width: 20%" placeholder="Numero de mesas" type="number" th:field="*{mesas}"/>
+            </div>
+            <span th:if="${#fields.hasErrors('mesas')}" th:errors="*{mesas}" class="badge badge-danger"></span>
+            <input style="margin-left: 6.5%; padding: 0.5%" type="submit" value="Guardar" class="btn btn-primary">
         </form>
     </div>
 </body>

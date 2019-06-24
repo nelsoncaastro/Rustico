@@ -7,8 +7,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" th:href="@{/sucursal/}">
+            <h2><img th:src="@{/assets/letter-r.svg}" width="40" height="40" class="d-inline-block align-top" alt="" >
+            Rustico</h2>
+        </a>
+    </nav>
     <div th:object="${sucursal}">
-        <h1 th:text="${sucursal.nombre}"></h1>
+        <h1 style="padding: 1%" th:text="${sucursal.nombre}"></h1>
         <table class="table">
             <thead>
             <tr>
@@ -32,7 +38,7 @@
             </tbody>
         </table>
         <h3>Empleados</h3>
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
