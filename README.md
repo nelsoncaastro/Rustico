@@ -1,10 +1,10 @@
-# Rustico Restaurant Web Application :octocat:
+# Rustico Restaurant Web Application :tada:
 
 Tarea final de la materia "Programación N-Capas"
 
 #### Como correr el proyecto
 
-* Importar el proyecto en **IntelliJ IDEA** 
+* Importar el proyecto en **IntelliJ IDEA**, es necesario Java JDK 12
 * Modificar el archivo *src/main/resources/application.properties* con los datos correctos del ambiente actual, la contraseña del usuario postgres y el puerto del servidor de postgres:
 
 ``` properties
